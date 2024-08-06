@@ -9,6 +9,8 @@ use Tests\TestCase;
 
 class AuthenticatedSessionControllerTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_admin_login_screen_can_be_rendered(): void
     {
         $response = $this->get('/admin/login');

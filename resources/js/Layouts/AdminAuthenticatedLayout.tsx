@@ -6,6 +6,7 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 import { Admin } from "@/types";
 import { useTranslation } from "react-i18next";
+import { usePage } from "@inertiajs/react";
 
 export default function Authenticated({
     user,
@@ -13,6 +14,7 @@ export default function Authenticated({
     children,
 }: PropsWithChildren<{ user: Admin; header?: ReactNode }>) {
     const { t } = useTranslation();
+    const { component } = usePage();
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
 
@@ -34,6 +36,12 @@ export default function Authenticated({
                                     active={route().current("admin.dashboard")}
                                 >
                                     {t("Dashboard")}
+                                </NavLink>
+                                <NavLink
+                                    href={route("admin.register")}
+                                    active={component === "Admin/Auth/Register"}
+                                >
+                                    {t("Admin Register")}
                                 </NavLink>
                             </div>
                         </div>
@@ -138,6 +146,12 @@ export default function Authenticated({
                             active={route().current("admin.dashboard")}
                         >
                             {t("Dashboard")}
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("admin.register")}
+                            active={component === "Admin/Auth/Register"}
+                        >
+                            {t("Admin Register")}
                         </ResponsiveNavLink>
                     </div>
 

@@ -31,10 +31,11 @@ Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(functio
 });
 
 Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function () {
-    // Route::get('register', [AdminRegisteredUserController::class, 'create'])
-    //     ->name('register');
+    Route::get('register', [AdminRegisteredUserController::class, 'create'])
+        ->name('register');
 
-    // Route::post('register', [AdminRegisteredUserController::class, 'store']);
+    Route::post('register', [AdminRegisteredUserController::class, 'store'])
+        ->name('register');
 
     //     Route::get('verify-email', EmailVerificationPromptController::class)
     //         ->name('verification.notice');

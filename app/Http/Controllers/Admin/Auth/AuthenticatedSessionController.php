@@ -29,4 +29,15 @@ class AuthenticatedSessionController extends Controller
 
         return redirect()->intended(route('admin.dashboard', absolute: false));
     }
+
+    public function destroy(Request $request): RedirectResponse
+    {
+        Auth::guard('admin')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return to_route('admin.login');
+    }
 }

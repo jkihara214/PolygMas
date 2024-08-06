@@ -70,14 +70,14 @@ export default function Authenticated({
                                             href={route("profile.edit")}
                                         >
                                             {t("Profile")}
-                                        </Dropdown.Link>
+                                        </Dropdown.Link> */}
                                         <Dropdown.Link
-                                            href={route("logout")}
+                                            href={route("admin.logout")}
                                             method="post"
                                             as="button"
                                         >
                                             {t("Log Out")}
-                                        </Dropdown.Link> */}
+                                        </Dropdown.Link>
                                     </Dropdown.Content>
                                 </Dropdown>
                             </div>
@@ -154,14 +154,14 @@ export default function Authenticated({
                         <div className="mt-3 space-y-1">
                             {/* <ResponsiveNavLink href={route("profile.edit")}>
                                 {t("Profile")}
-                            </ResponsiveNavLink>
+                            </ResponsiveNavLink> */}
                             <ResponsiveNavLink
                                 method="post"
-                                href={route("logout")}
+                                href={route("admin.logout")}
                                 as="button"
                             >
                                 {t("Log Out")}
-                            </ResponsiveNavLink> */}
+                            </ResponsiveNavLink>
                         </div>
                     </div>
                 </div>

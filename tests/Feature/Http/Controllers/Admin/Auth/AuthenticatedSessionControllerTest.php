@@ -31,13 +31,23 @@ class AuthenticatedSessionControllerTest extends TestCase
 
     public function test_admins_can_not_authenticate_with_invalid_password(): void
     {
-        $user = Admin::factory()->create();
+        $admin = Admin::factory()->create();
 
         $this->post('/login', [
-            'email' => $user->email,
+            'email' => $admin->email,
             'password' => 'wrong-password',
         ]);
 
-        $this->assertGuest();
+        $this->assertGuest('admin');
+    }
+
+    public function test_admins_can_logout(): void
+    {
+        $admin = Admin::factory()->create();
+
+        $response = $this->actingAs($admin, 'admin')->post('/admin/logout');
+
+        $this->assertGuest('admin');
+        $response->assertRedirect('/admin/login');
     }
 }

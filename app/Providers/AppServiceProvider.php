@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $cookieName = request()->is('admin*') ? 'session.cookie_admin' : 'session.cookie';
+        config(['session.cookie' => config($cookieName)]);
     }
 }

@@ -59,4 +59,22 @@ class ProfileControllerTest extends TestCase
 
         $this->assertNotNull($admin->refresh()->email_verified_at);
     }
+
+    public function test_admin_can_delete_their_account(): void
+    {
+        $admin = Admin::factory()->create();
+
+        $response = $this
+            ->actingAs($admin, 'admin')
+            ->delete('/admin/profile', [
+                'password' => 'password',
+            ]);
+
+        $response
+            ->assertSessionHasNoErrors()
+            ->assertRedirect('/admin/login');
+
+        $this->assertGuest('admin');
+        $this->assertNull($admin->fresh());
+    }
 }

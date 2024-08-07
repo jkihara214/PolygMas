@@ -34,4 +34,22 @@ class ProfileController extends Controller
 
         return Redirect::route('admin.profile.edit');
     }
+
+    public function destroy(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'password' => ['required', 'current_password'],
+        ]);
+
+        $admin = $request->user();
+
+        Auth::logout();
+
+        $admin->delete();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return Redirect::to('/admin/login');
+    }
 }

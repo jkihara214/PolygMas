@@ -4,9 +4,9 @@ use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController as AdminAuthe
 use App\Http\Controllers\Admin\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationPromptController;
-use App\Http\Controllers\Admin\Auth\NewPasswordController;
+use App\Http\Controllers\Admin\Auth\NewPasswordController as AdminNewPasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordController;
-use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Admin\Auth\PasswordResetLinkController as AdminPasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController as AdminRegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
@@ -17,17 +17,17 @@ Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(functio
 
     Route::post('/login', [AdminAuthenticatedSessionController::class, 'store']);
 
-    //     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
-    //         ->name('password.request');
+    Route::get('forgot-password', [AdminPasswordResetLinkController::class, 'create'])
+        ->name('password.request');
 
-    //     Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
-    //         ->name('password.email');
+    Route::post('forgot-password', [AdminPasswordResetLinkController::class, 'store'])
+        ->name('password.email');
 
-    //     Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
-    //         ->name('password.reset');
+    Route::get('reset-password/{token}', [AdminNewPasswordController::class, 'create'])
+        ->name('password.reset');
 
-    //     Route::post('reset-password', [NewPasswordController::class, 'store'])
-    //         ->name('password.store');
+    Route::post('reset-password', [AdminNewPasswordController::class, 'store'])
+        ->name('password.store');
 });
 
 Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function () {

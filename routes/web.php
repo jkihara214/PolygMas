@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,10 @@ Route::middleware('auth')->group(function () {
 Route::get('/admin/dashboard', function () {
     return Inertia::render('Admin/Dashboard');
 })->middleware(['auth:admin'])->name('admin.dashboard');
+
+Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/profile', [AdminProfileController::class, 'edit'])->name('profile.edit');
+});
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/admin_auth.php';

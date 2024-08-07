@@ -6,6 +6,7 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 import { User } from "@/types";
 import { useTranslation } from "react-i18next";
+import { usePage } from "@inertiajs/react";
 
 export default function Authenticated({
     user,
@@ -13,6 +14,7 @@ export default function Authenticated({
     children,
 }: PropsWithChildren<{ user: User; header?: ReactNode }>) {
     const { t } = useTranslation();
+    const { component } = usePage();
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
 
@@ -31,7 +33,7 @@ export default function Authenticated({
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
                                     href={route("dashboard")}
-                                    active={route().current("dashboard")}
+                                    active={component === "Dashboard"}
                                 >
                                     {t("Dashboard")}
                                 </NavLink>
@@ -135,7 +137,7 @@ export default function Authenticated({
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink
                             href={route("dashboard")}
-                            active={route().current("dashboard")}
+                            active={component === "Dashboard"}
                         >
                             {t("Dashboard")}
                         </ResponsiveNavLink>
@@ -152,7 +154,10 @@ export default function Authenticated({
                         </div>
 
                         <div className="mt-3 space-y-1">
-                            <ResponsiveNavLink href={route("profile.edit")}>
+                            <ResponsiveNavLink
+                                href={route("profile.edit")}
+                                active={component === "Profile/Edit"}
+                            >
                                 {t("Profile")}
                             </ResponsiveNavLink>
                             <ResponsiveNavLink

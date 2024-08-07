@@ -33,7 +33,7 @@ export default function Authenticated({
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
                                     href={route("admin.dashboard")}
-                                    active={route().current("admin.dashboard")}
+                                    active={component === "Admin/Dashboard"}
                                 >
                                     {t("Dashboard")}
                                 </NavLink>
@@ -143,7 +143,7 @@ export default function Authenticated({
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink
                             href={route("admin.dashboard")}
-                            active={route().current("admin.dashboard")}
+                            active={component === "Admin/Dashboard"}
                         >
                             {t("Dashboard")}
                         </ResponsiveNavLink>
@@ -168,6 +168,7 @@ export default function Authenticated({
                         <div className="mt-3 space-y-1">
                             <ResponsiveNavLink
                                 href={route("admin.profile.edit")}
+                                active={component === "Admin/Profile/Edit"}
                             >
                                 {t("Profile")}
                             </ResponsiveNavLink>

@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Admin\Auth\NewPasswordController as AdminNewPasswordController;
-use App\Http\Controllers\Admin\Auth\PasswordController;
+use App\Http\Controllers\Admin\Auth\PasswordController as AdminPasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController as AdminPasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController as AdminRegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
@@ -53,7 +53,7 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
 
     //     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
 
-    //     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
+    Route::put('password', [AdminPasswordController::class, 'update'])->name('password.update');
 
     Route::post('logout', [AdminAuthenticatedSessionController::class, 'destroy'])
         ->name('logout');

@@ -31,6 +31,7 @@ Route::get('/admin/dashboard', function () {
 
 Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/profile', [AdminProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [AdminProfileController::class, 'update'])->name('profile.update');
 });
 
 require __DIR__ . '/auth.php';

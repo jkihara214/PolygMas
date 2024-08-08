@@ -47,4 +47,22 @@ class PasswordControllerTest extends TestCase
             ->assertSessionHasErrors('current_password')
             ->assertRedirect('/admin/profile');
     }
+
+    public function test_validation_error_check_to_update_admin_password(): void
+    {
+        $admin = Admin::factory()->create();
+
+        $response = $this
+            ->actingAs($admin, 'admin')
+            ->from('/admin/profile')
+            ->put('/admin/password', [
+                'current_password' => 'password',
+                'password' => 'pass',
+                'password_confirmation' => 'pass',
+            ]);
+
+        $response
+            ->assertSessionHasErrors('password')
+            ->assertRedirect('/admin/profile');
+    }
 }

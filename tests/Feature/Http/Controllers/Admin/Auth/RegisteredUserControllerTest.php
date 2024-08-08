@@ -34,4 +34,17 @@ class RegisteredUserControllerTest extends TestCase
 
         $response->assertRedirect(route('admin.dashboard', absolute: false));
     }
+
+    public function test_validation_error_check_to_register_new_admin(): void
+    {
+        $admin = Admin::factory()->create();
+
+        $response = $this->actingAs($admin, 'admin')->post('/admin/register', [
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => 'password',
+            'password_confirmation' => 'wrong-password',
+        ]);
+        $response->assertSessionHasErrors('password');
+    }
 }

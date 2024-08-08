@@ -72,4 +72,26 @@ class PasswordResetLinkControllerTest extends TestCase
             return true;
         });
     }
+
+    public function test_validation_error_check_to_reset_admin_password(): void
+    {
+        Notification::fake();
+
+        $admin = Admin::factory()->create();
+
+        $this->post('/admin/forgot-password', ['email' => $admin->email]);
+
+        Notification::assertSentTo($admin, ResetPasswordNotification::class, function ($notification) use ($admin) {
+            $response = $this->post('/admin/reset-password', [
+                'token' => $notification->token,
+                'email' => $admin->email,
+                'password' => 'password',
+                'password_confirmation' => 'wrong-password',
+            ]);
+
+            $response->assertSessionHasErrors('password');
+
+            return true;
+        });
+    }
 }

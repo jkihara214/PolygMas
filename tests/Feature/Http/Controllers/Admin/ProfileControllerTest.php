@@ -77,4 +77,18 @@ class ProfileControllerTest extends TestCase
         $this->assertGuest('admin');
         $this->assertNull($admin->fresh());
     }
+
+    public function test_validation_error_check_to_destroy_admin(): void
+    {
+        $admin = Admin::factory()->create();
+
+        $response = $this
+            ->actingAs($admin, 'admin')
+            ->delete('/admin/profile', [
+                'password' => 'wrong-password',
+            ]);
+
+        $response
+            ->assertSessionHasErrors('password');
+    }
 }

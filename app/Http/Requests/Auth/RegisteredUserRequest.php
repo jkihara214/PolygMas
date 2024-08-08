@@ -4,6 +4,7 @@ namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Validation\Rules;
 
 class RegisteredUserRequest extends FormRequest
@@ -23,10 +24,17 @@ class RegisteredUserRequest extends FormRequest
      */
     public function rules(): array
     {
+        $modelClass = $this->getModelClass();
+
         return [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . Admin::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . $modelClass],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
+    }
+
+    protected function getModelClass(): string
+    {
+        return $this->is('admin/*') ? Admin::class : User::class;
     }
 }

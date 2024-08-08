@@ -79,7 +79,7 @@ export default function UpdateProfileInformation({
                     <InputError className="mt-2" message={errors.email} />
                 </div>
 
-                {mustVerifyEmail && user.email_verified_at === null && (
+                {/* {mustVerifyEmail && user.email_verified_at === null && (
                     <div>
                         <p className="text-sm mt-2 text-gray-800">
                             {t("Your email address is unverified.")}
@@ -103,7 +103,7 @@ export default function UpdateProfileInformation({
                             </div>
                         )}
                     </div>
-                )}
+                )} */}
 
                 <div className="flex items-center gap-4">
                     <PrimaryButton disabled={processing}>

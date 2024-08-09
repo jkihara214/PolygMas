@@ -36,6 +36,7 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::delete('/profile', [AdminProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/lang/register', [AdminLanguageController::class, 'create'])->name('lang.register');
+    Route::post('/lang/register', [AdminLanguageController::class, 'store'])->name('lang.register');
 });
 
 require __DIR__ . '/auth.php';

@@ -43,6 +43,12 @@ export default function Authenticated({
                                 >
                                     {t("Admin Register")}
                                 </NavLink>
+                                <NavLink
+                                    href={route("admin.lang.register")}
+                                    active={component === "Admin/Lang/Register"}
+                                >
+                                    {t("Lang Register")}
+                                </NavLink>
                             </div>
                         </div>
 
@@ -152,6 +158,12 @@ export default function Authenticated({
                             active={component === "Admin/Auth/Register"}
                         >
                             {t("Admin Register")}
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("admin.lang.register")}
+                            active={component === "Admin/Lang/Register"}
+                        >
+                            {t("Lang Register")}
                         </ResponsiveNavLink>
                     </div>
 

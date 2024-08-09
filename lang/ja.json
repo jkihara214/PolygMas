@@ -1,5 +1,10 @@
 {
     "Name": "名前",
+    "Lang Register": "言語登録",
+    "JP Name": "名前（日本語表記）",
+    "EN Name": "名前（英語表記）",
+    "Lang Code": "短縮名（英語表記）",
+    "Country Image": "国旗画像",
     "Profile": "アカウント",
     "Profile Information": "アカウント情報",
     "Cancel": "キャンセル",

@@ -24,6 +24,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "date-fns": "^3.6.0",
         "i18next": "^23.12.2",
         "react-i18next": "^15.0.0"
     }

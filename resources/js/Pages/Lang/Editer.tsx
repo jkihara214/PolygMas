@@ -23,7 +23,7 @@ interface FormData {
     language_id: number;
 }
 
-export default function Register({ auth, languages }: LanguagePageProps) {
+export default function Editer({ auth, languages }: LanguagePageProps) {
     const { t } = useTranslation();
     const { data, setData, patch, processing, errors, reset } =
         useForm<FormData>({
@@ -33,7 +33,7 @@ export default function Register({ auth, languages }: LanguagePageProps) {
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        patch(route("lang.setting.register"));
+        patch(route("lang.setting.update"));
     };
 
     return (

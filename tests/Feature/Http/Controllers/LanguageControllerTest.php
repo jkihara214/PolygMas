@@ -16,8 +16,28 @@ class LanguageControllerTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->get('/lang/setting/register');
+            ->get('/lang/setting');
 
         $response->assertOk();
+    }
+
+    public function test_learning_lang_setting_information_can_be_updated(): void
+    {
+        $user = User::factory()->create();
+        $languageId = Language::latest()->first()->id ?? Language::factory()->create()->id;
+
+        $response = $this
+            ->actingAs($user)
+            ->patch('/lang/setting', [
+                'language_id' => $languageId,
+            ]);
+
+        $response
+            ->assertSessionHasNoErrors()
+            ->assertRedirect('/dashboard');
+
+        $user->refresh();
+
+        $this->assertSame($languageId, $user->language_id);
     }
 }

@@ -69,9 +69,7 @@ export default function Authenticated({
 
                                     <Dropdown.Content>
                                         <Dropdown.Link
-                                            href={route(
-                                                "lang.setting.register"
-                                            )}
+                                            href={route("lang.setting.edit")}
                                         >
                                             {t("Learnig Language Setting")}
                                         </Dropdown.Link>
@@ -162,8 +160,8 @@ export default function Authenticated({
 
                         <div className="mt-3 space-y-1">
                             <ResponsiveNavLink
-                                href={route("lang.setting.register")}
-                                active={component === "Lang/Register"}
+                                href={route("lang.setting.edit")}
+                                active={component === "Lang/Editer"}
                             >
                                 {t("Learnig Language Setting")}
                             </ResponsiveNavLink>

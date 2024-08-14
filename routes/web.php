@@ -30,7 +30,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth', 'verified')->group(function () {
-    Route::get('/lang/setting/register', [LanguageController::class, 'create'])->name('lang.setting.register');
+    Route::get('/lang/setting', [LanguageController::class, 'edit'])->name('lang.setting.edit');
+    Route::patch('/lang/setting', [LanguageController::class, 'update'])->name('lang.setting.update');
 });
 
 Route::get('/admin/dashboard', function () {

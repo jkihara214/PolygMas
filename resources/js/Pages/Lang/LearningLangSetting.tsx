@@ -3,7 +3,6 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
-import TextInput from "@/Components/TextInput";
 import { Head, Link, useForm } from "@inertiajs/react";
 import { PageProps } from "@/types";
 import { useTranslation } from "react-i18next";
@@ -23,7 +22,10 @@ interface FormData {
     language_id: number;
 }
 
-export default function Editer({ auth, languages }: LanguagePageProps) {
+export default function LearningLangSetting({
+    auth,
+    languages,
+}: LanguagePageProps) {
     const { t } = useTranslation();
     const { data, setData, patch, processing, errors, reset } =
         useForm<FormData>({

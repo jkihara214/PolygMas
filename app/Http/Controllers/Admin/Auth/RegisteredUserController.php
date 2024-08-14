@@ -29,6 +29,6 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect(route('admin.dashboard', absolute: false));
+        return redirect(route('admin.index', absolute: false));
     }
 }

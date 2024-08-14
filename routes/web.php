@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\LanguageController as AdminLanguageController;
 use App\Http\Controllers\Admin\AdminController as AdminAdminController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,7 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::delete('/profile', [AdminProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/', [AdminAdminController::class, 'index'])->name('index');
+    Route::get('/user', [AdminUserController::class, 'index'])->name('user.index');
     Route::get('/lang', [AdminLanguageController::class, 'index'])->name('lang.index');
     Route::get('/lang/register', [AdminLanguageController::class, 'create'])->name('lang.register');
     Route::post('/lang/register', [AdminLanguageController::class, 'store'])->name('lang.register');

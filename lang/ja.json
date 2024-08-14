@@ -1,6 +1,7 @@
 {
     "Name": "名前",
     "Admin List": "管理者一覧",
+    "User List": "顧客一覧",
     "Lang List": "言語一覧",
     "Lang Register": "言語登録",
     "JP Name": "名前（日本語表記）",
@@ -10,6 +11,7 @@
     "Created at": "作成日時",
     "Updated at": "更新日時",
     "No registered admins": "登録済みの管理者がいません",
+    "No registered users": "登録済みの顧客がいません",
     "No registered languages": "登録済みの言語がありません",
     "Profile": "アカウント",
     "Profile Information": "アカウント情報",

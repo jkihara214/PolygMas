@@ -46,6 +46,6 @@ class LanguageController extends Controller
             'image' => $imageName,
         ]);
 
-        return redirect(route('admin.dashboard', absolute: false));
+        return redirect(route('admin.lang.index', absolute: false));
     }
 }

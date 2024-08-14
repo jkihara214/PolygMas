@@ -3,6 +3,7 @@ export interface User {
     name: string;
     email: string;
     email_verified_at: string;
+    language_id: number;
 }
 
 export interface Admin {

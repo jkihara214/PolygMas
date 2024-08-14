@@ -15,6 +15,14 @@ use Carbon\Carbon;
 
 class LanguageController extends Controller
 {
+    public function index(): Response
+    {
+        $languages = Language::all();
+        return Inertia::render('Admin/Lang/Index', [
+            'languages' => $languages
+        ]);
+    }
+
     public function create(): Response
     {
         return Inertia::render('Admin/Lang/Register');

@@ -35,6 +35,7 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::patch('/profile', [AdminProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [AdminProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/lang', [AdminLanguageController::class, 'index'])->name('lang.index');
     Route::get('/lang/register', [AdminLanguageController::class, 'create'])->name('lang.register');
     Route::post('/lang/register', [AdminLanguageController::class, 'store'])->name('lang.register');
 });

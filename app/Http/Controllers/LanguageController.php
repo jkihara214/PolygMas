@@ -15,7 +15,7 @@ class LanguageController extends Controller
     public function edit(): Response
     {
         $languages = Language::all();
-        return Inertia::render('Lang/Editer', [
+        return Inertia::render('Lang/LearningLangSetting', [
             'languages' => $languages
         ]);
     }

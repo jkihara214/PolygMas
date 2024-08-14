@@ -161,7 +161,9 @@ export default function Authenticated({
                         <div className="mt-3 space-y-1">
                             <ResponsiveNavLink
                                 href={route("lang.setting.edit")}
-                                active={component === "Lang/Editer"}
+                                active={
+                                    component === "Lang/LearningLangSetting"
+                                }
                             >
                                 {t("Learnig Language Setting")}
                             </ResponsiveNavLink>

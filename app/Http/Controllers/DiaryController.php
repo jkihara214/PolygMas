@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\DiaryRequest;
-use App\Models\Diary;
 use App\Models\Language;
+use App\Models\Diary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Services\GeminiService;
@@ -20,6 +20,22 @@ class DiaryController extends Controller
     public function __construct(GeminiService $geminiService)
     {
         $this->geminiService = $geminiService;
+    }
+
+    public function index(): Response
+    {
+        $user = Auth::user();
+        $languageId = $user->language_id;
+        $language = Language::find($languageId);
+        if (!$language) {
+            throw new \Exception('現在学習中の言語は存在しません。');
+        }
+
+        $diaryModel = Diary::forLanguage($language->code);
+        $diaries = $diaryModel->where('user_id', $user->id)->get();
+        return Inertia::render('Diary/Index', [
+            'diaries' => $diaries
+        ]);
     }
 
     public function create(): Response

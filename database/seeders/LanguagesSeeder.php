@@ -36,6 +36,14 @@ class LanguagesSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'jp_name' => '韓国語',
+                'en_name' => 'Korean',
+                'code' => 'ko',
+                'image' => $newImageName,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

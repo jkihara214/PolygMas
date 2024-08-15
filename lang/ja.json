@@ -1,5 +1,10 @@
 {
     "Name": "名前",
+    "Automatic Diary Creation": "日記自動作成",
+    "How was the weather and temperature today?": "今日の天気・気温はどうでしたか",
+    "Where and what did you eat today?": "今日どこで何を食べましたか",
+    "What made you happy or what made you have fun today?": "今日うれしかった・楽しかったことは何ですか",
+    "What was difficult or challenging today?": "今日つらかった・難しかったことは何ですか",
     "Admin List": "管理者一覧",
     "User List": "顧客一覧",
     "Lang List": "言語一覧",

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\LanguageController as AdminLanguageController;
 use App\Http\Controllers\Admin\AdminController as AdminAdminController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -32,6 +33,8 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth', 'verified')->group(function () {
     Route::get('/lang/setting', [LanguageController::class, 'edit'])->name('lang.setting.edit');
     Route::patch('/lang/setting', [LanguageController::class, 'update'])->name('lang.setting.update');
+
+    Route::get('/diary/register', [DiaryController::class, 'create'])->name('diary.register');
 });
 
 Route::get('/admin/dashboard', function () {

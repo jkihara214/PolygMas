@@ -1,6 +1,9 @@
 {
     "Name": "名前",
     "Automatic Diary Creation": "日記自動作成",
+    "Diary History List": "日記履歴一覧",
+    "Japanese Text": "日本語",
+    "Translation Text": "翻訳語",
     "How was the weather and temperature today?": "今日の天気・気温はどうでしたか",
     "Where and what did you eat today?": "今日どこで何を食べましたか",
     "What made you happy or what made you have fun today?": "今日うれしかった・楽しかったことは何ですか",
@@ -21,6 +24,7 @@
     "No registered admins": "登録済みの管理者がいません",
     "No registered users": "登録済みの顧客がいません",
     "No registered languages": "登録済みの言語がありません",
+    "No registered diaries": "登録済みの日記履歴がありません",
     "Profile": "アカウント",
     "Profile Information": "アカウント情報",
     "Cancel": "キャンセル",

@@ -43,6 +43,12 @@ export default function Authenticated({
                                 >
                                     {t("Automatic Diary Creation")}
                                 </NavLink>
+                                <NavLink
+                                    href={route("diary.index")}
+                                    active={component === "Diary/Index"}
+                                >
+                                    {t("Diary History List")}
+                                </NavLink>
                             </div>
                         </div>
 
@@ -157,6 +163,12 @@ export default function Authenticated({
                             active={component === "Diary/Register"}
                         >
                             {t("Automatic Diary Creation")}
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("diary.index")}
+                            active={component === "Diary/Index"}
+                        >
+                            {t("Diary History List")}
                         </ResponsiveNavLink>
                     </div>
 

@@ -34,6 +34,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/lang/setting', [LanguageController::class, 'edit'])->name('lang.setting.edit');
     Route::patch('/lang/setting', [LanguageController::class, 'update'])->name('lang.setting.update');
 
+    Route::get('/diary', [DiaryController::class, 'index'])->name('diary.index');
     Route::get('/diary/register', [DiaryController::class, 'create'])->name('diary.register');
     Route::post('/diary/register', [DiaryController::class, 'store'])->name('diary.register');
 });

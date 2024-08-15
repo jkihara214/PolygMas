@@ -9,6 +9,18 @@ use Tests\TestCase;
 
 class DiaryControllerTest extends TestCase
 {
+    // public function test_diary_history_list_page_is_displayed(): void
+    // {
+    //     // language_id が未設定
+    //     $user = User::factory()->create();
+
+    //     $response = $this
+    //         ->actingAs($user)
+    //         ->get('/diary');
+
+    //     $response->assertOk();
+    // }
+
     public function test_diary_create_page_is_displayed(): void
     {
         $user = User::factory()->create();
@@ -20,7 +32,7 @@ class DiaryControllerTest extends TestCase
         $response->assertOk();
     }
 
-    // public function test_learning_lang_setting_information_can_be_updated(): void
+    // public function test_diary_information_can_be_stored(): void
     // {
     //     $user = User::factory()->create();
     //     $tableName = "diary_" . $code;

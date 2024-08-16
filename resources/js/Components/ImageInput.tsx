@@ -11,14 +11,18 @@ interface ImageInputProps
     isFocused?: boolean;
 }
 
-export default forwardRef<HTMLInputElement, ImageInputProps>(
+interface ImageInputHandle {
+    focus: () => void;
+}
+
+export default forwardRef<ImageInputHandle, ImageInputProps>(
     function ImageInput(
         { className = "", isFocused = false, ...props }: ImageInputProps,
         ref
     ) {
         const localRef = useRef<HTMLInputElement>(null);
 
-        useImperativeHandle(ref, () => ({
+        useImperativeHandle<ImageInputHandle, ImageInputHandle>(ref, () => ({
             focus: () => localRef.current?.focus(),
         }));
 

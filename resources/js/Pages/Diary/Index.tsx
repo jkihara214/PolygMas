@@ -50,7 +50,15 @@ export default function Register({ auth, diaries }: DiaryPageProps) {
                                                     {t("ID")}：
                                                 </div>
                                                 <div className="text-gray-900">
-                                                    {index + 1}
+                                                    <Link
+                                                        href={route(
+                                                            "diary.show",
+                                                            diary.id
+                                                        )}
+                                                        className="text-blue-600 hover:text-blue-800 hover:underline"
+                                                    >
+                                                        {index + 1}
+                                                    </Link>
                                                 </div>
                                             </div>
                                             <div className="flex items-center md:block">

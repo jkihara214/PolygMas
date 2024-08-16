@@ -38,6 +38,26 @@ class DiaryController extends Controller
         ]);
     }
 
+    public function show($diaryId): Response
+    {
+        $user = Auth::user();
+        $languageId = $user->language_id;
+        $language = Language::find($languageId);
+        if (!$language) {
+            throw new \Exception('現在学習中の言語は存在しません。');
+        }
+
+        $diaryModel = Diary::forLanguage($language->code);
+        $diary = $diaryModel->where(
+            'user_id',
+            $user->id
+        )->findOrFail($diaryId);
+
+        return Inertia::render('Diary/Show', [
+            'diary' => $diary
+        ]);
+    }
+
     public function create(): Response
     {
         return Inertia::render('Diary/Register');
@@ -90,6 +110,6 @@ class DiaryController extends Controller
             'trans_text' => $trans_text,
         ]);
 
-        return Redirect::route('diary.register');
+        return Redirect::route('diary.show', $diary->id);
     }
 }

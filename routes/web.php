@@ -37,6 +37,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/diary', [DiaryController::class, 'index'])->name('diary.index');
     Route::get('/diary/register', [DiaryController::class, 'create'])->name('diary.register');
     Route::post('/diary/register', [DiaryController::class, 'store'])->name('diary.register');
+    Route::get('/diary/show/{id}', [DiaryController::class, 'show'])->name('diary.show');
 });
 
 Route::get('/admin/dashboard', function () {
